@@ -5,6 +5,7 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    Note.with_rich_text_body
 end
 
   def new
