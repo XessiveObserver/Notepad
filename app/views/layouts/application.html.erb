@@ -12,7 +12,12 @@
   </head>
 
   <body>
-    <%= render "nav" %>
+    <div class="container mx-auto">
+      <%= link_to "Home", root_path %>
+      <%= link_to "Notes", notes_path %>
+      <%= link_to "About", static_pages_about_path %>
+      <%= link_to "Conatct", static_pages_contact_path %>
+    </div>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
