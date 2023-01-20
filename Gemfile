@@ -59,6 +59,9 @@ end
 # Devise gem
 gem 'devise'
 
+gem 'importmap-rails'
+gem 'hotwire-rails', '~> 0.1.3'
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"

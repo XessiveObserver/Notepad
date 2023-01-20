@@ -40,7 +40,7 @@ def destroy
     @note = Note.find(params[:id])
     @note.destroy
 
-    redirect_to root_path, status: :see_other
+    redirect_to notes_path, status: :see_other
   end
 
   private

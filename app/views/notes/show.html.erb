@@ -1,11 +1,15 @@
 
-<h1><%= @note.title %></h1>
+<div>
+    <h1><%= @note.title %></h1>
+</div>
 
-<p><%= @note.body %></p>
-<p><%= @note.body %></p>
-
-<%= link_to "Edit Note", edit_note_path(@note) %>
-<%= link_to "Delete Note", note_path(@note), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-}%>
+<div><%= @note.body %></div>
+<div>
+    <% if current_user %>
+        <%= link_to "Edit Note", edit_note_path(@note) %>
+        <%= link_to "Delete Note", note_path(@note), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+        }%>
+    <% end %>
+</div>
