@@ -5,38 +5,37 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
-    Note.with_rich_text_body
-end
+  end
 
   def new
     @note = Note.new
-end
+  end
 
-def create
+  def create
     @note = Note.new(note_params)
     
     if @note.save
-        redirect_to @note
+      redirect_to @note
     else
-        render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
-end
+  end
 
-def edit
+  def edit
     @note = Note.find(params[:id])
-end
+  end
 
-def update
+  def update
     @note = Note.find(params[:id])
-    
+      
     if @note.update(note_params)
-        redirect_to @note
+      redirect_to @note
     else
-        render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
-end
+  end
 
-def destroy
+  def destroy
     @note = Note.find(params[:id])
     @note.destroy
 
