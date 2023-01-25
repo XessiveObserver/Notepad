@@ -12,33 +12,42 @@
   </head>
 
   <body>
-    <div class="sm:flex sm:flex-row bg-orange-300 py-5 mx-auto text-orange-700 space-x-14">
-      <div class="container text-3xl font-bold">
-        <%= link_to "Notepad", root_path, class: "ml-8 hover:text-pink-100" %>
+    <div class="sm:flex sm:flex-row py-5 mx-auto space-x-14">
+      <div class="container text-amber-300 text-3xl font-bold">
+        <%= link_to "Notepad", root_path, class: "ml-8 hover:text-stone-500" %>
       </div>
-      <div class="container font-semibold">
-        <%= link_to "Home", root_path, class: "mx-3 hover:text-pink-100" %>
-        <%= link_to "Notes", notes_path, class: "mx-3 hover:text-pink-100" %>
-        <%= link_to "About", static_pages_about_path, class: "mx-3 hover:text-pink-100" %>
-        <%= link_to "Conatct", static_pages_contact_path, class: "mx-3 hover:text-pink-100" %>
+      <div class="container font-semibold text-stone-300">
+        <%= link_to "Home", root_path, class: "mx-3 hover:text-blue-300" %>
+        <%= link_to "Notes", notes_path, class: "mx-3 hover:text-blue-300" %>
+        <%= link_to "About", static_pages_about_path, class: "mx-3 hover:text-blue-300" %>
+        <%= link_to "Conatct", static_pages_contact_path, class: "mx-3 hover:text-blue-300" %>
       </div>
       
       <div class="container">
         <% if user_signed_in? %>
-        <%= link_to "Edit profile", edit_user_registration_path, class: "mx-3 hover:text-pink-100" %>
-          <span> Signed in as <%= current_user.email %>. Not you? </span>
-          <%= link_to "Sign out", destroy_user_session_path, class: "mx-3 hover:text-pink-100", data: { turbo_method: :delete } %>
+        <%= link_to "Edit profile", edit_user_registration_path, class: "mx-3 hover:text-stone-500" %>
+          <span> Signed in as <%= current_user.name %>. Not you? </span>
+          <%= link_to "Sign out", destroy_user_session_path, class: "mx-3 hover:text-stone-500", data: { turbo_method: :delete } %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, class: "mx-3 hover:text-pink-100", method: :get %>
-          <%= link_to "sign in", new_user_session_path, class: "mx-3 hover:text-pink-100" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "mx-3 hover:text-orange-500 hover:font-bold", method: :get %>
+          <%= link_to "sign in", new_user_session_path, class: "mx-3 hover:text-blue-300 hover:font-bold" %>
         <% end %>      
       </div>
 
 
-    </div>
-    <div class="mx-auto">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    </div><hr>
+    <div class="mx-auto container text-center">
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+          <%= notice %>
+        </p>
+      <% end %>
+      <% if notice.present? %>
+        <p class="py-2 px-3 bg-green-50 mb-5 text-orange-500 font-medium rounded-lg inline-block" id="notice">
+          <%= alert %>
+        </p>
+      <% end %>
+      
     </div>
     <main class="container mx-auto mt-14 px-3 sm:flex">
       <%= yield %>
