@@ -3,11 +3,14 @@
 
     <ul class="py-5 list-disc list-outside divide-y divide">
         <% @notes.each do |note| %>
-            <li class="text-orange-300 hover:font-bold">
-            <%= link_to note.title, note %>
-            </li>
+            <% if note.user == current_user || !current_user %>
+                <li class="text-orange-300 hover:font-bold">
+                <%= link_to note.title, note %>
+                </li>
+            <% end %>
         <% end %>
     </ul>
+
     <% if current_user %>            
         <%= link_to "New Note",
         new_note_path, class: 
