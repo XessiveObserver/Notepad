@@ -7,6 +7,7 @@ module.exports = {
     './app/javascript/**/*.js',
     './app/views/**/*.{erb,haml,html,slim}'
   ],
+  mode: 'jit',
   theme: {
     extend: {
       fontFamily: {

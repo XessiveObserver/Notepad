@@ -1,7 +1,7 @@
 <div class="mx-auto">
     <h1 class="my-2 font-medium text-2xl font-sans underline">Notes</h1>
 
-    <ul class="py-5 list-disc list-outside divide-y divide">
+    <ul class="py-5 list-disc list-outside divide-y">
         <% @notes.each do |note| %>
             <% if note.user == current_user || !current_user %>
                 <li class="text-orange-300 hover:font-bold">
